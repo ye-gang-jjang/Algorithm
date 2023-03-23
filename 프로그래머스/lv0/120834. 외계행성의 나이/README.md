@@ -1,4 +1,4 @@
-# [level 0] 외계행성의 나이 - 120834 
+# [level 0] 외계행성의 나이 - 120834  ⭐️
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120834?language=swift) 
 
