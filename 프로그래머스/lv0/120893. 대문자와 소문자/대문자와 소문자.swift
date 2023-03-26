@@ -11,5 +11,14 @@ func solution(_ my_string:String) -> String {
 
     }
     
+//     for i in my_string.indices {
+//         if my_string != strLowe[i] {
+//             result += String(strLowe[i])
+//         } else {
+//             result += String(strUpper[i])
+//         }
+//     }
+    
+    
     return result
 }
