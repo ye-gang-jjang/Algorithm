@@ -7,11 +7,8 @@ func solution(_ my_string:String) -> String {
     var result = ""
     
     for i in my_string.indices {
-        if my_string[i] != strLowe[i] {
-            result += String(strLowe[i])
-        } else {
-            result += String(strUpper[i])
-        }
+        result += (my_string[i] != strLowe[i]) ? String(strLowe[i]) : String(strUpper[i])
+
     }
     
     return result
