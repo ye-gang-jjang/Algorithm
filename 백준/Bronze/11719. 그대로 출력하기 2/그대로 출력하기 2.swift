@@ -1,7 +1,3 @@
-while true {
-    guard let input = readLine()
-    else {
-        break
-    }
+while let input = readLine() {
     print(input)
 }
