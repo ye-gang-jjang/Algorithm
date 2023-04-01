@@ -1,17 +1,13 @@
 var X = Int(readLine()!)!
 var count = 1
 
-while true {
+while X > count {
     X -= count
-    
-    if X <= 0 {
-        break
-    }
     count += 1
 }
 
 if count % 2 == 1 {
-    print("\(-X+1)/\(X+count)")
+    print("\(count - X + 1)/\(X)")
 } else {
-    print("\(X+count)/\(-X+1)")
+    print("\(X)/\(count - X + 1)")
 }
