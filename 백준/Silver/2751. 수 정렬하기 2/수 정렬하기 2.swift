@@ -9,7 +9,7 @@ for _ in 1...N {
 }
 
 for i in 0..<2000001 {
-    if arr[i] == true {
+    if arr[i] {
         str += "\(i-1000000)\n"
     }
 }
