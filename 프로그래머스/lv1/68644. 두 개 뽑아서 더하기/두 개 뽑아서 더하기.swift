@@ -8,5 +8,5 @@ func solution(_ numbers:[Int]) -> [Int] {
             numArr.append(numbers[i] + numbers[j])
         }
     }
-    return Array(Set(numArr)).sorted()
+    return Set(numArr).sorted()
 }
