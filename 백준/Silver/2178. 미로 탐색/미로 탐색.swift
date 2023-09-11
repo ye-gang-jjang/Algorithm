@@ -18,15 +18,12 @@ for _ in 0..<N {
 
 var queue = [[0,0]]
 var nx = 0, ny = 0
-
-//var x = queue[0][0]
-//var y = queue[0][1]
-var x = 0, y = 0
+//var x = 0, y = 0
 visited[0][0] = true
 
 while !queue.isEmpty {
-    x = queue[0][0]
-    y = queue[0][1]
+    let x = queue[0][0]
+    let y = queue[0][1]
     
     queue.removeFirst()
     
