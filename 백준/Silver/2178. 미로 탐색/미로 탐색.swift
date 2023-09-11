@@ -1,5 +1,6 @@
 import Foundation
 
+// 상 하 좌 우
 let dx = [-1, 1, 0, 0]
 let dy = [0, 0, -1, 1]
 
@@ -11,15 +12,16 @@ var visited = Array(repeating: Array(repeating: false, count: M), count: N)
 
 for _ in 0..<N {
     let input = readLine()!.map{ Int("\($0)")! }
+//    let input = readLine()!.split(separator: "").map{ Int(String($0))! }
     map.append(input)
 }
 
 var queue = [[0,0]]
-var nx = 0
-var ny = 0
+var nx = 0, ny = 0
 
-var x = queue[0][0]
-var y = queue[0][1]
+//var x = queue[0][0]
+//var y = queue[0][1]
+var x = 0, y = 0
 visited[0][0] = true
 
 while !queue.isEmpty {
