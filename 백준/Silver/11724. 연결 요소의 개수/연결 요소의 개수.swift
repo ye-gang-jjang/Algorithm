@@ -1,11 +1,11 @@
-var nm = readLine()!.split(separator: " ").map{ Int(String($0))! }
+var nm = readLine()!.split(separator: " ").map{ Int($0)! }
 var graph = Array(repeating: [], count: nm[0]+1)
 var visited = Array(repeating: false, count: nm[0]+1)
 var answer = 0
 var depth = 0
 
 for _ in 0..<nm[1] {
-    let uv = readLine()!.split(separator: " ").map { Int(String($0))! }
+    let uv = readLine()!.split(separator: " ").map { Int($0)! }
     graph[uv[0]].append(uv[1])
     graph[uv[1]].append(uv[0])
 }
