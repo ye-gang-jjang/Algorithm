@@ -1,51 +1,84 @@
 import Foundation
 
-let count = Int(readLine()!)!
+class Main {
+    var M = 0
+    var N = 0
+    var T = 0
+    var K = 0
+    let d4i = [-1, 1, 0, 0]
+    let d4j = [0, 0, -1, 1]
 
-var farmW = 0, farmH = 0
-var farm: [[Bool]] = []
+    func solve() {
+        T = Int(readLine()!)!
 
-let dx: [Int] = [0, 0, -1, 1]
-let dy: [Int] = [-1, 1, 0, 0]
+        for _ in 0..<T {
+            let input = readLine()!.split(separator: " ").map { Int($0)! }
+            M = input[0]
+            N = input[1]
+            K = input[2]
 
-for _ in 0..<count {
-    //input
-    let input = readLine()!.split(separator: " ").map { Int(String($0))! }
-    farmW = input[0]
-    farmH = input[1]
-    let cabbageCount = input[2]
-    
-    farm = Array(repeating: Array(repeating: false, count: farmW), count: farmH)
-    for _ in 0..<cabbageCount {
-        let positions = readLine()!.split(separator: " ").map { Int(String($0))! }
-    
-        farm[positions[1]][positions[0]] = true
-    }
-    
-    var count = 0
-    for y in 0..<farmH {
-        for x in 0..<farmW {
-            if farm[y][x] {
-                dfs(y: y, x: x)
-                count += 1
+            var map = Array(repeating: Array(repeating: 0, count: N), count: M)
+            var visited = Array(repeating: Array(repeating: 0, count: N), count: M)
+
+            for _ in 0..<K {
+                let coordinates = readLine()!.split(separator: " ").map { Int($0)! }
+                let x = coordinates[0]
+                let y = coordinates[1]
+                map[x][y] = 1
             }
+
+            let r = findMin(map: map, visited: &visited)
+            print(r)
         }
     }
-    
-    print(count)
-}
 
-func dfs(y: Int, x: Int) {
-    if farm[y][x] {
-        farm[y][x] = false
-        
-        for i in 0..<4 {
-            let nextY = y + dy[i], nextX = x + dx[i]
-            if nextY >= 0 && nextY < farmH && nextX >= 0 && nextX < farmW {
-                if farm[y+dy[i]][x+dx[i]] {
-                    dfs(y: y+dy[i], x: x+dx[i])
+    func findMin(map: [[Int]], visited: inout [[Int]]) -> Int {
+        var r = 0
+
+        for i in 0..<M {
+            for j in 0..<N {
+                if map[i][j] == 1 && visited[i][j] == 0 {
+                    bfs(xs: i, ys: j, map: map, visited: &visited)
+                    r += 1
+                }
+            }
+        }
+
+        return r
+    }
+
+    func isInMap(x: Int, y: Int) -> Bool {
+        return (0 <= x && x < M) && (0 <= y && y < N)
+    }
+
+    func bfs(xs: Int, ys: Int, map: [[Int]], visited: inout [[Int]]) {
+        visited[xs][ys] = 1
+
+        var al = [(xs, ys)]
+
+        while al.count > 0 {
+            let xy = al.removeFirst()
+            let x = xy.0
+            let y = xy.1
+
+            for di in 0..<d4i.count {
+                let dx = x + d4i[di]
+                let dy = y + d4j[di]
+
+                if isInMap(x: dx, y: dy) {
+                    if map[dx][dy] == 1 && visited[dx][dy] == 0 {
+                        al.append((dx, dy))
+                        visited[dx][dy] = 1
+                    }
                 }
             }
         }
     }
+
+    static func main() {
+        let main = Main()
+        main.solve()
+    }
 }
+
+Main.main()
