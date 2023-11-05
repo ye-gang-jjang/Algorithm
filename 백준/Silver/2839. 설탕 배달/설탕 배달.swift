@@ -1,14 +1,8 @@
 var sugar = Int(readLine()!)!
 var bag = 0
 
-while(sugar >= 3) {
-    if sugar % 5 == 0 {
-        sugar -= 5
-        bag += 1
-    } else {
-        sugar -= 3
-        bag += 1
-    }
+while (sugar % 5 != 0 && sugar >= 0) {
+    sugar -= 3
+    bag += 1
 }
-
-print(sugar == 0 ? bag : -1)
+print(sugar < 0 ? -1 : bag + sugar/5)
