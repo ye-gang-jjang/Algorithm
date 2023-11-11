@@ -9,7 +9,7 @@ let B = readLine()!.map{ String($0) }
 var strLen = (A.count + B.count)
 
 var nameArr = [Int]()
-var temp = [Int]()
+
 
 for i in 0..<A.count {
     let AKey = A[i]
@@ -20,13 +20,14 @@ for i in 0..<A.count {
 }
 
 while nameArr.count != 2 {
+    var temp = [Int]()
+    
     for i in 0..<nameArr.count - 1 {
         let num = (nameArr[i] + nameArr[i+1]) % 10
         temp.append(num)
     }
     
     nameArr = temp
-    temp.removeAll()
 }
 
 print(nameArr.map{ String($0) }.joined(separator: ""))
