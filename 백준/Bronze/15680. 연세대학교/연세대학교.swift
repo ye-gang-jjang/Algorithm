@@ -1,0 +1,1 @@
+print(Int(readLine()!)! == 1 ? "Leading the Way to the Future" : "YONSEI")
