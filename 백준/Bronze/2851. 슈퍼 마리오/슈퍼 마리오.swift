@@ -12,8 +12,6 @@ for i in stride(from: 10, through: 1, by: -1) {
     sumScoreBoard.append(sumScore)
 }
 
-sumScoreBoard.sort(by: >)
-
 var max = 1001
 var result = 0
 
