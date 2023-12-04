@@ -7,9 +7,7 @@ for _ in 0..<N {
     coin.append(Int(readLine()!)!)
 }
 
-coin.sort(by: >)
-
-for i in 0..<N {
+for i in (0..<N).reversed() {
     if coin[i] <= K {
         cnt += (K / coin[i])
         K %= coin[i]
