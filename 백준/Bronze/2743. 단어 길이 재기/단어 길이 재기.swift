@@ -1,4 +1,1 @@
-import Foundation
-
-let input = readLine()!
-print(input.count)
+print(readLine()!.count)
