@@ -1,17 +1,9 @@
-import Foundation
-
 let input = readLine()!
 
-let lowInput = input.lowercased()
-let uppInput = input.uppercased()
-var str = ""
-
-for i in input.indices {
-    if input[i] == lowInput[i] {
-        str.append(uppInput[i])
+for i in input {
+    if String(i) >= "a" && String(i) <= "z" {
+        print(String(i).uppercased(),terminator: "")
     } else {
-        str.append(lowInput[i])
+        print(String(i).lowercased(),terminator: "")
     }
 }
-
-print(str)
