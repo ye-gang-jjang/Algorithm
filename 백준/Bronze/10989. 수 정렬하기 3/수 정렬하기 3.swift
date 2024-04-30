@@ -51,15 +51,16 @@ final class FileIO {
 let file = FileIO()
 
 let N = file.readInt()
-var dp = Array(repeating:0,count:10001)
+var arr = Array(repeating:0,count:10001)
+var result = ""
+
 for _ in 0..<N {
-    let q = file.readInt()
-    dp[q]+=1
-}
-var answer = ""
-for i in 1...10000 {
-    var j = 0
-    answer += String(repeating:"\(i)\n",count:dp[i])
+    let num = file.readInt()
+    arr[num]+=1
 }
 
-print(answer)
+for i in 1...10000 {
+    result += String(repeating:"\(i)\n",count:arr[i])
+}
+
+print(result)
