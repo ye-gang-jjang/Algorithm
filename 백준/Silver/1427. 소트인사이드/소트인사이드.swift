@@ -1,2 +1,1 @@
-let N = String(Int(readLine()!)!).sorted(by: >)
-print(String(N))
+print(String(readLine()!.sorted(by: >)))
