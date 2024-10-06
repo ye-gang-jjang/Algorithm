@@ -1,17 +1,20 @@
-var arr = Array(repeating: 0, count: 3)
+import Foundation
 
-for i in 0...2 {
-    arr[i] = Int(readLine()!)!
+var setArr = Set<Int>()
+var numberSum = 0
+
+for _ in 0..<3 {
+    let N = Int(readLine()!)!
+    setArr.insert(N)
+    numberSum += N
 }
 
-let sum = arr.reduce(0, +)
-
-if arr[0] == 60 && arr[1] == 60 && arr[2] == 60 {
-    print("Equilateral")
-} else if sum == 180 && arr[0] == arr[1] || arr[1] == arr[2] || arr[0] == arr[2] {
-    print("Isosceles")
-} else if sum == 180 {
+if setArr.count == 3 && numberSum == 180 {
     print("Scalene")
+} else if setArr.count == 2 && numberSum == 180 {
+    print("Isosceles")
+} else if setArr.count == 1 && numberSum == 180 {
+    print("Equilateral")
 } else {
     print("Error")
 }
