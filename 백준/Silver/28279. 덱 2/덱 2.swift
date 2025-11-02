@@ -9,6 +9,7 @@ import Foundation
 
 let N = Int(readLine()!)!
 var deque = Deque<Int>([])
+var out = String()
 
 for _ in 0..<N {
     let parts = readLine()!.split(separator: " ").map{ Int($0)! }
@@ -20,22 +21,24 @@ for _ in 0..<N {
     case 2:
         let X = parts[1]; deque.pushLast(X)
     case 3:
-        print(deque.isEmpty ? "-1" : deque.popFirst())
+        out += deque.isEmpty ? "-1\n" : "\(deque.popFirst())\n"
     case 4:
-        print(deque.isEmpty ? "-1" : deque.popLast())
+        out += deque.isEmpty ? "-1\n" : "\(deque.popLast())\n"
     case 5:
-        print(deque.count)
+        out += "\(deque.count)\n"
     case 6:
-        print(deque.isEmpty ? 1 : 0)
+        out += deque.isEmpty ? "1\n" : "0\n"
     case 7:
-        print((try? deque.peekFirst()) ?? -1)
+        out += "\( (try? deque.peekFirst()) ?? -1 )\n"
     case 8:
-        print((try? deque.peekLast()) ?? -1)
+        out += "\( (try? deque.peekLast()) ?? -1 )\n"
         
     default:
         break
     }
 }
+
+print(out, terminator: " ")
 
 enum DequeError: Error { case empty }
 
